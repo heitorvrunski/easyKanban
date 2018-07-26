@@ -1,0 +1,8 @@
+<div [@routerTransition]>
+    <main class="container">
+        <div class="row">
+            <app-project-card (projectEvent)='getProjects()' [project]="newProject" class="col-lg-4 col-md-4 col-sm-6"></app-project-card>
+            <app-project-card (projectEvent)='getProjects()' *ngFor="let project of projects" [project]="project" class="col-lg-4 col-md-4 col-sm-6"></app-project-card>
+        </div>
+    </main>
+</div>

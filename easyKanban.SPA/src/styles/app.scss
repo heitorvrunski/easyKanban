@@ -1,0 +1,29 @@
+/* You can add global styles to this file, and also import other style files */
+@import "bootstrap/bootstrap";
+@import "spinner";
+@import "utils";
+@import "rtl";
+@import "responsive";
+
+@media print {
+    .breadcrumb {
+        display: none !important;
+    }
+}
+
+.btn-black {
+    background-color: #212529;
+    color: lightgray;
+}
+
+.btn-black:hover {
+    color: white;
+}
+
+.btn-black:active {
+    color: white;
+}
+
+.color-black {
+    color: #212529
+}
