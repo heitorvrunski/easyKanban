@@ -1,0 +1,37 @@
+<ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Users - {{project.projectName}}</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <ul class="list-group">
+            <li class="list-group-item group-btn">
+                <div class="input-group">
+                    <input type="text" (input)="true" #SearchUser class="form-control" placeholder="User Name" aria-label="User Name" aria-describedby="button-addon2">
+                    <span class="input-group-append">
+                        <button (click)="addUserToProject(SearchUser.value)" class="btn btn-outline-dark" type="button" id="button-addon2">Add</button>
+                        <button (click)="deleteUserToProject(SearchUser.value)" class="btn btn-outline-dark" type="button" id="button-addon3">Delete</button>
+                    </span>
+                </div>
+            </li>
+            <li (click)="SearchUser.value =us.userName" *ngFor="let us of users | userFilter:SearchUser.value" class="list-group-item">{{us.userName}}</li>
+        </ul>
+        <table class="table table-bordered table-hover table-responsive-md mt-4">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Current Project Users</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="mh1" *ngFor="let user of usersOfProject">{{user.userName}}</tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-outline-dark" (click)="d('Cancel Click')">Close</button>
+    </div>
+</ng-template>
+
+<i class="nav-link fa fa-user color-black" id="user-tab" (click)="open(content)"></i>

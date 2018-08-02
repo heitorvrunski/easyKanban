@@ -9,6 +9,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { HeaderComponent } from './components/header/header.component';
 import { ProjectPageModule } from './project-page/project-page.module';
 import { AuthService } from '../_services/auth.service';
+import { CardPageModule } from './card-page/card-page.module';
 
 @NgModule({
     imports: [
@@ -16,6 +17,7 @@ import { AuthService } from '../_services/auth.service';
         LayoutRoutingModule,
         TranslateModule,
         ProjectPageModule,
+        CardPageModule,
         NgbDropdownModule.forRoot()
     ],
     declarations: [LayoutComponent, SidebarComponent, HeaderComponent],

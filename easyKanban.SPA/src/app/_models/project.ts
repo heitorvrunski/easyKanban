@@ -4,4 +4,5 @@ export interface Project {
     ts: Date;
     isPublic: boolean;
     description: string;
+    owner: number;
 }

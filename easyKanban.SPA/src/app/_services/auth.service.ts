@@ -7,6 +7,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Authuser } from '../_models/authUser';
 import { environment } from '../../environments/environment';
+import { UserInfo } from '../_models/userinfo';
 
 
 @Injectable()
@@ -29,6 +30,10 @@ login(model: any) {
     });
 }
 
+getUsers(): Observable<UserInfo[]> {
+    return this.http.get<UserInfo[]>(this.baseurl + 'auth/getUsers');
+}
+
 loggedIn() {
     const token = this.jwtHelperService.tokenGetter();
     if (!token) {
@@ -47,4 +52,12 @@ getUserName() {
     const dToken = this.jwtHelperService.decodeToken(token);
     return dToken.unique_name;
 }
+
+getUserId() {
+    const token = this.jwtHelperService.tokenGetter();
+    const dToken = this.jwtHelperService.decodeToken(token);
+    return dToken.nameid;
+}
+
+
 }

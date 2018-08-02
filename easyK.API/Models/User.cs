@@ -8,4 +8,10 @@ namespace easyK.API.Models
         public byte[] PasswordHash { get; set; }
         public byte[] PasswordSalt { get; set; }
     }
+
+    public class UserInfo
+    {
+        public int UserId { get; set; }
+        public string UserName { get; set; }
+    }
 }

@@ -18,7 +18,8 @@ export class ProjectAddModalComponent {
     isPublic: false,
     projectName: '',
     ts : new Date(),
-    description: ''
+    description: '',
+    owner: 0
   };
   constructor(private modalService: NgbModal, private projectService: ProjectService, private alertify: AlertifyService) {}
 

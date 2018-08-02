@@ -12662,7 +12662,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\heito\\.nuget\\packages\\": {},
+    "C:\\Users\\Heitor.Moreira\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
@@ -12671,22 +12671,20 @@
       "projectUniqueName": "C:\\WebApps\\easyKanban\\easyK.API\\easyK.API.csproj",
       "projectName": "easyK.API",
       "projectPath": "C:\\WebApps\\easyKanban\\easyK.API\\easyK.API.csproj",
-      "packagesPath": "C:\\Users\\heito\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\Heitor.Moreira\\.nuget\\packages\\",
       "outputPath": "C:\\WebApps\\easyKanban\\easyK.API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\heito\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\Heitor.Moreira\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "https://www.nuget.org/api/v2/": {}
       },
       "frameworks": {
         "netcoreapp2.0": {

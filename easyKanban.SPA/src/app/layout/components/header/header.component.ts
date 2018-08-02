@@ -57,7 +57,7 @@ export class HeaderComponent implements OnInit {
     }
 
     getUserName() {
-        return  this.authService.getUserName() + '...';
+        return  this.authService.getUserName();
 
     }
 }

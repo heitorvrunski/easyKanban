@@ -1,0 +1,28 @@
+<div [@routerTransition]>
+    <main class="container">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Item</span>
+            </div>
+            <input (input)="true" #InputSearch type="text" aria-label="Project name" class="form-control">
+        </div>
+        <div class="row mt-1">
+            <div class="border border-gray rounded col-3 mt-1">
+                <h4 class="text-center">To Do</h4>
+                <app-card-card [cardType]="c.cardType" *ngFor="let c of cards" [card]="c"></app-card-card>
+            </div>
+            <div class="border border-gray rounded col-3 mt-1">
+                <h4 class="text-center">Doing</h4>
+                <app-card-card [cardType]="c.cardType" *ngFor="let c of cards" [card]="c"></app-card-card>
+            </div>
+            <div class="border border-gray rounded col-3 mt-1">
+                <h4 class="text-center">Test</h4>
+                <app-card-card [cardType]="c.cardType" *ngFor="let c of cards" [card]="c"></app-card-card>
+            </div>
+            <div class="border border-gray rounded col-3 mt-1">
+                <h4 class="text-center">Done</h4>
+                <app-card-card [cardType]="c.cardType" *ngFor="let c of cards" [card]="c"></app-card-card>
+            </div>
+        </div>
+    </main>
+</div>

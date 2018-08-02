@@ -1,8 +1,15 @@
 <div [@routerTransition]>
     <main class="container">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Project</span>
+            </div>
+            <input (input)="true" #InputSearch type="text" aria-label="Project name" class="form-control">
+        </div>
         <div class="row">
             <app-project-card (projectEvent)='getProjects()' [project]="newProject" class="col-lg-4 col-md-4 col-sm-6"></app-project-card>
-            <app-project-card (projectEvent)='getProjects()' *ngFor="let project of projects" [project]="project" class="col-lg-4 col-md-4 col-sm-6"></app-project-card>
+            <app-project-card (projectEvent)='getProjects()' *ngFor="let project of projects | projectFilter:InputSearch.value" [users]="users" [project]="project" [isOwner]="project.owner == userId" class="col-lg-4 col-md-4 col-sm-6">
+            </app-project-card>
         </div>
     </main>
 </div>

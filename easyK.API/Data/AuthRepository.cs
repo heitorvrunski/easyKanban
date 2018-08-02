@@ -1,7 +1,9 @@
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using easyK.API.Data;
 using easyK.API.Models;
+using System.Linq;
 using Microsoft.EntityFrameworkCore;
 
 namespace easyK.API.Data
@@ -69,6 +71,13 @@ namespace easyK.API.Data
                 return true;
             }
             return false;
+        }
+
+        public async Task<IEnumerable<UserInfo>> GetUsers()
+        {
+           var users = await (from u in _context.Users
+                        select new UserInfo{ UserId = u.UserId, UserName = u.UserName } ).ToListAsync();
+            return users;
         }
     }
 }

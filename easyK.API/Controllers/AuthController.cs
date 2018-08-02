@@ -10,6 +10,7 @@ using Microsoft.IdentityModel.Tokens;
 using easyK.API.Data;
 using easyK.API.Dtos;
 using easyK.API.Models;
+using System.Collections.Generic;
 
 namespace easyK.API.Controllers
 {
@@ -74,6 +75,16 @@ namespace easyK.API.Controllers
 
             return Ok(new { tokenString });
 
+        }
+        [HttpGet("getUsers")]
+        public async Task<IActionResult> GetUsers()
+        {
+            IEnumerable<UserInfo> users = await _repo.GetUsers();
+            if (users == null)
+            {
+                return NoContent();
+            }
+            return Ok(users);
         }
     }
 }

@@ -1,21 +1,21 @@
-<div class="card m-2" >
-  <div class="card-header"> 
-    <ul *ngIf="project.projectName !== 'New Project'" class="nav nav-tabs card-header-tabs pull-right"  id="myTab" role="tablist">
-      <li class="nav-item">
-       <a class="nav-link fa fa-info color-black" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true"></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link fa fa-edit color-black" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false"></a>
-      </li>
-      <li class="nav-item">
-        <app-prj-delmodal (projectDeleted)='onProjectAdded()' [project]='project'></app-prj-delmodal>
-      </li>
-    </ul>
-  </div>
-  <div class="card-body">
-    <h5 class="card-title">{{project.projectName}}</h5>
-    <p class="card-text">{{project.description}}</p>
-    <a *ngIf="project.projectName !== 'New Project'" href="#" class="btn btn-outline-dark">Go to project</a>
-    <app-prjmodal (projectAdded)='onProjectAdded()' *ngIf="project.projectName == 'New Project'"></app-prjmodal>
-  </div>
+<div class="card m-2">
+    <div class="card-header">
+        <ul *ngIf="project.projectName !== 'New Project'" class="nav nav-tabs card-header-tabs pull-right" id="myTab" role="tablist">
+            <li *ngIf="isOwner" class="nav-item">
+                <app-prj-usermodal [project]='project' [users]="users"></app-prj-usermodal>
+            </li>
+            <li *ngIf="isOwner" class="nav-item">
+                <app-prj-editmodal (projectEdited)='onProjectAdded()' [project]='project'></app-prj-editmodal>
+            </li>
+            <li *ngIf="isOwner" class="nav-item">
+                <app-prj-delmodal (projectDeleted)='onProjectAdded()' [project]='project'></app-prj-delmodal>
+            </li>
+        </ul>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">{{project.projectName}}</h5>
+        <p class="card-text">{{project.description}}</p>
+        <a *ngIf="project.projectName !== 'New Project'" class="btn btn-outline-dark" [routerLink]="['card-page',project.projectId]">Go to project</a>
+        <app-prjmodal (projectAdded)='onProjectAdded()' *ngIf="project.projectName == 'New Project'"></app-prjmodal>
+    </div>
 </div>

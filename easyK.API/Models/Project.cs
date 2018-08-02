@@ -12,7 +12,7 @@ namespace easyK.API.Models
         public string ProjectName { get; set; }
         public System.DateTime TS { get; set; }
         public bool isPublic { get; set; }
-
         public string Description { get; set; }
+        public int Owner { get; set; }
     }
 }

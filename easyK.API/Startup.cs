@@ -37,6 +37,7 @@ namespace easyK.API
             services.AddCors();
             services.AddScoped<IAuthRepository, AuthRepository>();
             services.AddScoped<IProjectRepository, ProjectRepository>();
+            services.AddScoped<ICardRepository, CardRepository>();
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options => {
                     options.TokenValidationParameters = new TokenValidationParameters{
