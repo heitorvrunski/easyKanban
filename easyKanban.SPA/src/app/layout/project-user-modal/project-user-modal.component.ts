@@ -49,6 +49,10 @@ export class ProjectUserModalComponent implements OnInit{
     }
   }
 
+  close() {
+    this.modalRef.close();
+  }
+
   addUserToProject(userName:string)  {
     this.projectService.addUserToProject(userName,this.project).subscribe(() => {
       this.alertify.success('User added to project !');

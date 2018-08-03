@@ -36,6 +36,11 @@ export class ProjectEditModalComponent {
       return  `with: ${reason}`;
     }
   }
+  
+  close() {
+    this.modalRef.close();
+  }
+
 
   edit() {
     this.projectService.editProject(this.project).subscribe(() => {

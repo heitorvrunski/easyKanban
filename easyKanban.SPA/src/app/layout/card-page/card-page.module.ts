@@ -6,13 +6,15 @@ import { NgbModule } from '../../../../node_modules/@ng-bootstrap/ng-bootstrap';
 import { ProjectService } from '../../_services/project.service';
 import { AlertifyService } from '../../_services/alertify.service';
 import { CardService } from '../../_services/card.service';
-import { FormsModule } from '../../../../node_modules/@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '../../../../node_modules/@angular/forms';
 import { CardCardComponent } from '../card-card/card-card.component';
+import { CardTypeFilterPipe } from './cardTypeFilter.pipe';
+import { CardAddModalComponent } from '../card-add-modal/card-add-modal.component';
 
 @NgModule({
-    imports: [CommonModule, NgbModule.forRoot(), FormsModule, CardPageRoutingModule],
+    imports: [CommonModule, NgbModule.forRoot(), FormsModule, CardPageRoutingModule, FormsModule, ReactiveFormsModule],
     providers: [NgbModule, ProjectService, AlertifyService, CardService],
-    declarations: [CardPageComponent, CardCardComponent]
+    declarations: [CardPageComponent, CardCardComponent, CardTypeFilterPipe, CardAddModalComponent]
 })
 export class CardPageModule {
 

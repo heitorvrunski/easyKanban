@@ -42,6 +42,10 @@ export class ProjectAddModalComponent {
     }
   }
 
+  close() {
+    this.modalRef.close();
+  }
+
   add() {
     this.model.ts = new Date();
     this.projectService.addProject(this.model).subscribe(() => {

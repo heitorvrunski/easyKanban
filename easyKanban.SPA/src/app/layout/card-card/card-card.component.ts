@@ -18,7 +18,7 @@ export class CardCardComponent implements OnInit {
         this.classStyle = "card bg-light mb-3"
         break;
       case "medium":
-        this.classStyle = "card text-white bg-dark mb-3"
+        this.classStyle = "card text-black bg-warning mb-3"
         break;
       case "high":
       this.classStyle = "card text-white bg-danger mb-3"

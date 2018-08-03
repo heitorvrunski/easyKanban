@@ -37,6 +37,10 @@ export class ProjectDelModalComponent {
     }
   }
 
+  close() {
+    this.modalRef.close();
+  }
+
   delete() {
     this.projectService.deleteProject(this.project).subscribe(() => {
       this.alertify.success('Project deleted !');

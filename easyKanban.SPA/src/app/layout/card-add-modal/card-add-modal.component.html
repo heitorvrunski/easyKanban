@@ -1,0 +1,41 @@
+<ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Add new Card</h4>
+        <button type="button" class="close" aria-label="Close" (click)="close()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    </div>
+    <div class="modal-body">
+        <form [formGroup]="formCard">
+            <div class="form-group">
+                <label for="cardDescription">Description:</label>
+                <textarea type="text" class="form-control" required name="cardDescription" formControlName="cardDescription">
+                </textarea>
+            </div>
+            <div class="form-group">
+                <label class="mr-sm-2" for="inlineFormCustomSelect">Priority</label>
+                <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="cardType" formControlName="cardType">
+                  <option selected>Choose...</option>
+                  <option value="Low">Low</option>
+                  <option value="Medium">Medium</option>
+                  <option value="High">High</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="mr-sm-2" for="inlineFormCustomSelect">Type</label>
+                <select class="custom-select mr-sm-2" id="inlineFormCustomSelect2" name="cardStatus" formControlName="cardStatus">
+                  <option selected value="TODO">TO DO</option>
+                  <option value="DOING">DOING</option>
+                  <option value="TEST">TEST</option>
+                  <option value="DONE">DONE</option>
+                </select>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button [disabled]="formCard.invalid" type="button" class="btn btn-outline-dark" (click)="add()">Add</button>
+        <button class="btn btn-outline-dark" (click)="close()">Cancel</button>
+    </div>
+</ng-template>
+
+<button class="btn btn-outline-dark" (click)="open(content)">Add New</button>

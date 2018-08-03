@@ -3,5 +3,5 @@ export interface Card {
     cardStatus: string;
     cardDescription: string;
     cardType: string;
-    ts:number;
+    ts: Date;
 }

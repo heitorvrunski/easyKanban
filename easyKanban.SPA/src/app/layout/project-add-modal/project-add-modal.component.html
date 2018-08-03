@@ -1,31 +1,30 @@
 <ng-template #content let-c="close" let-d="dismiss">
     <div class="modal-header">
-      <h4 class="modal-title" id="modal-basic-title">Add new Project</h4>
-      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+        <h4 class="modal-title" id="modal-basic-title">Add new Project</h4>
+        <button type="button" class="close" aria-label="Close" (click)="close()">
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
     <div class="modal-body">
-      <form>
-        <div class="form-group">
-          <label for="projectName">Name:</label>
-          <input type="text" class="form-control" required name="projectName" [(ngModel)]="model.projectName">
-        </div>
-        <div class="form-group">
-            <label for="projectDescription">Description:</label>
-            <input type="text" class="form-control" required name="projectDescription" [(ngModel)]="model.description">
-        </div>
-        <div class="form-group">
-            <label for="isPublic">Public:</label>
-            <input type="checkbox"class="m-2" required name="isPublic" [(ngModel)]="model.isPublic">
-        </div>
-      </form>
+        <form>
+            <div class="form-group">
+                <label for="projectName">Name:</label>
+                <input type="text" class="form-control" required name="projectName" [(ngModel)]="model.projectName">
+            </div>
+            <div class="form-group">
+                <label for="projectDescription">Description:</label>
+                <input type="text" class="form-control" required name="projectDescription" [(ngModel)]="model.description">
+            </div>
+            <div class="form-group">
+                <label for="isPublic">Public:</label>
+                <input type="checkbox" class="m-2" required name="isPublic" [(ngModel)]="model.isPublic">
+            </div>
+        </form>
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn btn-outline-dark" (click)="add()">Add</button>
-      <button class="btn btn-outline-dark" (click)="d('Cancel Click')">Cancel</button>
+        <button type="button" class="btn btn-outline-dark" (click)="add()">Add</button>
+        <button class="btn btn-outline-dark" (click)="close()">Cancel</button>
     </div>
-  </ng-template>
-  
-  <button class="btn btn-outline-dark" (click)="open(content)">Add</button>
-  
+</ng-template>
+
+<button class="btn btn-outline-dark" (click)="open(content)">Add</button>

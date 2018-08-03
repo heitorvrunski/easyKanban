@@ -16,5 +16,8 @@ getCards(projectId: number): Observable<Card[]> {
     return this.authHttp.get<Card[]>(this.baseUrl + 'card/getCards/'+ projectId);
 }
 
+addCard(card: Card) {
+    return this.authHttp.post<Card>(this.baseUrl + 'card/addCard',card);
+}
 
 }
