@@ -11,6 +11,7 @@ namespace easyK.API.Data
         public DbSet<ProjectxUser> Projects_x_Users {get;set;}
         public DbSet<Card> Cards {get;set;}
         public DbSet<ProjectxCard> Projects_x_Cards {get;set;}
+        public DbSet<CardxUser> Cards_x_Users {get;set;}
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -19,6 +20,9 @@ namespace easyK.API.Data
 
             modelBuilder.Entity<ProjectxCard>()
                 .HasKey(p => new {p.ProjectId, p.CardId });
+            
+            modelBuilder.Entity<CardxUser>()
+                .HasKey(p => new {p.CardId, p.UserId });
                 
         }
     }

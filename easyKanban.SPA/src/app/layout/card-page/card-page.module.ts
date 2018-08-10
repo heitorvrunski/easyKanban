@@ -10,11 +10,15 @@ import { FormsModule, ReactiveFormsModule } from '../../../../node_modules/@angu
 import { CardCardComponent } from '../card-card/card-card.component';
 import { CardTypeFilterPipe } from './cardTypeFilter.pipe';
 import { CardAddModalComponent } from '../card-add-modal/card-add-modal.component';
+import { CardSearchFilterPipe } from './cardSearchFilter.pipe';
+import { CardDelModalComponent } from '../card-del-modal/card-del-modal.component';
+import { CardEditModalComponent } from '../card-edit-modal/card-edit-modal.component';
 
 @NgModule({
     imports: [CommonModule, NgbModule.forRoot(), FormsModule, CardPageRoutingModule, FormsModule, ReactiveFormsModule],
     providers: [NgbModule, ProjectService, AlertifyService, CardService],
-    declarations: [CardPageComponent, CardCardComponent, CardTypeFilterPipe, CardAddModalComponent]
+    declarations: [CardPageComponent, CardCardComponent, CardTypeFilterPipe,
+                     CardAddModalComponent, CardDelModalComponent, CardEditModalComponent, CardSearchFilterPipe]
 })
 export class CardPageModule {
 

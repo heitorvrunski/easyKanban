@@ -1,8 +1,17 @@
 <div [class]="classStyle">
     <div class="card-header">
+        <ul class="nav nav-tabs card-header-tabs pull-right">
+            <li class="nav-item">
+                <app-card-edit-modal [model]="card" (cardEdited)='onCardEvent()' *ngIf="isOwner"></app-card-edit-modal>
+            </li>
+            <li class="nav-item">
+                <app-card-del-modal [card]="card" (cardDeleted)='onCardEvent()' *ngIf="isOwner"></app-card-del-modal>
+            </li>
+        </ul>
     </div>
     <div class="card-body">
         <h5 class="card-title">Item #{{card.cardId}}</h5>
         <p class="card-text">{{card.cardDescription}}</p>
     </div>
+    <footer class="text-right">#{{card.userName}}</footer>
 </div>

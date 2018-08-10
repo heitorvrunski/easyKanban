@@ -4,27 +4,27 @@
             <div class="input-group-prepend">
                 <span class="input-group-text">Item</span>
             </div>
-            <input (input)="true" #InputSearch type="text" aria-label="Project name" class="form-control">
+            <input (input)="true" #InputSearch type="text" aria-label="Card description" class="form-control">
             <span class="input-group-append">
-                <app-card-add-modal></app-card-add-modal>
+                <app-card-add-modal (cardAdded)='getCards(projectId)'></app-card-add-modal>
             </span>
         </div>
         <div class="row mt-1">
             <div class="border border-gray rounded col-lg-3 col-md-3 col-sm-12 mt-1">
                 <h4 class="text-center">To Do</h4>
-                <app-card-card [cardType]="c.cardType" *ngFor="let c of cards | cardTypeFilter:'TODO'" [card]="c"></app-card-card>
+                <app-card-card [isOwner]="c.userId == userId" [cardType]="c.cardType" *ngFor="let c of cards | cardTypeFilter:'TODO' | cardSearchFilter:InputSearch.value" [card]="c" (cardEvent)="getCards(projectId)"></app-card-card>
             </div>
             <div class="border border-gray rounded col-lg-3 col-md-3 col-sm-12 mt-1">
                 <h4 class="text-center">Doing</h4>
-                <app-card-card [cardType]="c.cardType" *ngFor="let c of cards | cardTypeFilter:'DOING'" [card]="c"></app-card-card>
+                <app-card-card [isOwner]="c.userId == userId" [cardType]="c.cardType" *ngFor="let c of cards | cardTypeFilter:'DOING' | cardSearchFilter:InputSearch.value" [card]="c" (cardEvent)="getCards(projectId)"></app-card-card>
             </div>
             <div class="border border-gray rounded col-lg-3 col-md-3 col-sm-12 mt-1">
                 <h4 class="text-center">Test</h4>
-                <app-card-card [cardType]="c.cardType" *ngFor="let c of cards | cardTypeFilter:'TEST'" [card]="c"></app-card-card>
+                <app-card-card [isOwner]="c.userId == userId" [cardType]="c.cardType" *ngFor="let c of cards | cardTypeFilter:'TEST' | cardSearchFilter:InputSearch.value" [card]="c" (cardEvent)="getCards(projectId)"></app-card-card>
             </div>
             <div class="border border-gray rounded col-lg-3 col-md-3 col-sm-12 mt-1">
                 <h4 class="text-center">Done</h4>
-                <app-card-card [cardType]="c.cardType" *ngFor="let c of cards | cardTypeFilter:'DONE'" [card]="c"></app-card-card>
+                <app-card-card [isOwner]="c.userId == userId" [cardType]="c.cardType" *ngFor="let c of cards | cardTypeFilter:'DONE' | cardSearchFilter:InputSearch.value" [card]="c" (cardEvent)="getCards(projectId)"></app-card-card>
             </div>
         </div>
     </main>

@@ -6,6 +6,10 @@ namespace easyK.API.Data
 {
     public interface ICardRepository
     {        
-        Task<IEnumerable<Card>> GetCards(int projectId,int userId);
+        Task<IEnumerable<CardInfo>> GetCards(int projectId,int userId);
+        Task<Card> AddCard(Card card, int userId, int projectId);
+        Task<bool> SaveAll();
+        void DeleteCard(Card card);
+        Task<Card> EditCard(Card card);
     }
 }

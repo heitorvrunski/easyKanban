@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 import { NgbModal, NgbModalRef, ModalDismissReasons } from '../../../../node_modules/@ng-bootstrap/ng-bootstrap';
 import { AlertifyService } from '../../_services/alertify.service';
 import { Card } from '../../_models/card';
@@ -7,23 +7,17 @@ import { CardService } from '../../_services/card.service';
 import { ActivatedRoute } from '../../../../node_modules/@angular/router';
 
 @Component({
-  selector: 'app-card-add-modal',
-  templateUrl: './card-add-modal.component.html',
-  styleUrls: ['./card-add-modal.component.scss']
+  selector: 'app-card-edit-modal',
+  templateUrl: './card-edit-modal.component.html',
+  styleUrls: ['./card-edit-modal.component.scss']
 })
-export class CardAddModalComponent implements OnInit {
-  @Output() cardAdded  = new EventEmitter();
+export class CardEditModalComponent implements OnInit {
+  @Output() cardEdited  = new EventEmitter();
   projectId: number;
   closeResult: string;
   modalRef: NgbModalRef;
   formCard: FormGroup;
-  model: Card = {
-    cardDescription: '',
-    cardId: 0,
-    cardStatus: 'TODO',
-    cardType: 'Low',
-    ts: new Date()
-  };
+  @Input() model: Card;
   constructor(private modalService: NgbModal,
                private alertify: AlertifyService,
                 private formBuilder: FormBuilder,
@@ -33,9 +27,9 @@ export class CardAddModalComponent implements OnInit {
   ngOnInit() {
     this.projectId = this.actRoute.snapshot.params.projectId;
     this.formCard = this.formBuilder.group({
-      cardDescription: ['', Validators.required],
-      cardType: ['', Validators.required],
-      cardStatus: ['', Validators.required],
+      cardDescription: [this.model.cardDescription, Validators.required],
+      cardType: [this.model.cardType, Validators.required],
+      cardStatus: [this.model.cardStatus, Validators.required],
     });
   }
 
@@ -62,12 +56,12 @@ export class CardAddModalComponent implements OnInit {
     this.modalRef.close();
   }
 
-  add(formCard: NgForm) {
+  edit(formCard: NgForm) {
     this.model = {...this.model, ...this.formCard.value};
-    this.cardService.addCard(this.model, this.projectId).subscribe(() => {
-      this.alertify.success('Card added sucessfully !');
+    this.cardService.editCard(this.model).subscribe(() => {
+      this.alertify.success('Card edited sucessfully !');
       this.modalRef.close();
-      this.cardAdded.emit();
+      this.cardEdited.emit();
     },
       error => { this.alertify.error(error);
       }

@@ -24,7 +24,7 @@ namespace easyK.API.Controllers
             _proRepo = proRepo;
 
         }
-        [HttpGet("getProjects"),Authorize]
+        [HttpGet("getProjects")]
         public async Task<IActionResult> GetProjects()
         {
             var c = User.Identity.Name;
@@ -36,7 +36,7 @@ namespace easyK.API.Controllers
             return Ok(proList);
 
         }
-        [HttpPost("addProject"),Authorize]
+        [HttpPost("addProject")]
         public async Task<IActionResult> AddProject([FromBody] Project project)
         {
             if(!ModelState.IsValid)
@@ -55,7 +55,7 @@ namespace easyK.API.Controllers
 
         }
 
-        [HttpPost("editProject"),Authorize]
+        [HttpPost("editProject")]
         public async Task<IActionResult> EditProject([FromBody] Project project)
         {
             if(!ModelState.IsValid)
@@ -82,14 +82,14 @@ namespace easyK.API.Controllers
             
             throw new Exception($"Fail to remove project!");
         }
-        [HttpGet("getUsersOfProject/{projectId}"),Authorize]
+        [HttpGet("getUsersOfProject/{projectId}")]
         public async Task<IActionResult> GetUsersOfProject(int projectId)
         {
             IEnumerable<UserInfo> userList = await _proRepo.GetUsersOfProject(projectId);
             return Ok(userList);
 
         }
-        [HttpPost("addUserToProject/{userName}"),Authorize]
+        [HttpPost("addUserToProject/{userName}")]
         public async Task<IActionResult> addUserToProject([FromBody] Project project,string userName)
         {
             if(!ModelState.IsValid)
@@ -102,7 +102,7 @@ namespace easyK.API.Controllers
             throw new Exception($"Fail to add user to project!");
 
         }
-        [HttpPost("deleteUserToProject/{userName}"),Authorize]
+        [HttpPost("deleteUserToProject/{userName}")]
         public async Task<IActionResult> deleteUserToProject([FromBody] Project project,string userName)
         {
             if(!ModelState.IsValid)

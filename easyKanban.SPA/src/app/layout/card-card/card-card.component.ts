@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Card } from '../../_models/card';
+import { CardInfo } from '../../_models/cardInfo';
 
 @Component({
   selector: 'app-card-card',
@@ -7,9 +8,11 @@ import { Card } from '../../_models/card';
   styleUrls: ['./card-card.component.scss']
 })
 export class CardCardComponent implements OnInit {
-  @Input() card: Card;
+  @Input() card: CardInfo;
   classStyle: string;
   @Input() cardType: string;
+  @Input() isOwner: boolean;
+  @Output() cardEvent  = new EventEmitter();
   constructor() { }
 
   ngOnInit() {
@@ -28,4 +31,7 @@ export class CardCardComponent implements OnInit {
     }
   }
 
+  onCardEvent() {
+    this.cardEvent.emit();
+  }
 }
