@@ -16,6 +16,7 @@ export class SignupComponent implements OnInit {
 
           ngOnInit() {
           }
+          
 
           register() {
             if (this.model.password === this.model.confirmPassword) {
