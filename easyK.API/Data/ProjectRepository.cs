@@ -78,7 +78,7 @@ namespace easyK.API.Data
             var projects = await (from p in _dataContext.Projects
                 join p_x_u in _dataContext.Projects_x_Users on p.ProjectId equals p_x_u.ProjectId into pp
                 from p_x_u in pp.DefaultIfEmpty() 
-                where p_x_u.UserId == userId || p.isPublic == true
+                where (p_x_u.UserId == userId && p.isPublic == false) || (p.isPublic == true && p_x_u.UserId != userId)
                 select p).ToListAsync();
             return projects;
         }

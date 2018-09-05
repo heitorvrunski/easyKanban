@@ -55,7 +55,8 @@ namespace easyK.API.Data
                 join c_x_u in _dataContext.Cards_x_Users on c.CardId equals c_x_u.CardId
                 join u in _dataContext.Users on c_x_u.UserId equals u.UserId into uu
                 from u in uu.DefaultIfEmpty()
-                where (p_x_c.ProjectId == projectId && p_x_u.UserId == userId) || p.isPublic == true
+                where (p_x_c.ProjectId == projectId && p_x_u.UserId == userId && p.isPublic == false) || 
+                (p.isPublic == true && p_x_c.ProjectId == projectId && p_x_u.UserId != userId)
                 select new CardInfo {UserName = u.UserName,
                                      CardId = c.CardId,
                                      CardDescription = c.CardDescription,

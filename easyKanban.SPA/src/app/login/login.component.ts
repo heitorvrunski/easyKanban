@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
       }, error => {
         this.alertify.error('Error trying to Log in !');
       },
-      () => { this.router.navigate(['/dashboard']);
+      () => { this.router.navigate(['/project-page']);
       }
     );
     }
